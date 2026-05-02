@@ -11,6 +11,7 @@ import {
 } from '@/lib/push';
 import { api } from '@/lib/api';
 import { useUIStore } from './useUIStore';
+import { handleStudyInvitation } from '@/components/study/InvitationToast';
 
 export interface PushPreferences {
   chat_message: boolean;
@@ -111,6 +112,8 @@ export function initPushForegroundListener(): () => void {
   const platform = detectPlatform();
 
   const unsub = onForegroundMessage(async (payload) => {
+    if (handleStudyInvitation(payload)) return;
+
     const title: string = payload.notification?.title || payload.data?.title || 'Tulia';
     const body: string = payload.notification?.body || payload.data?.body || '';
 
