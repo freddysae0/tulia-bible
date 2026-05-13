@@ -6,7 +6,6 @@ import { useNotificationStore } from '@/lib/store/useNotificationStore'
 import { useVerseStore } from '@/lib/store/useVerseStore'
 import { UserAvatar } from '@/components/auth/UserAvatar'
 import { StartStudyModal } from '@/components/study/StartStudyModal'
-import { NotificationsSection } from '@/components/ui/NotificationsSection'
 import { cn } from '@/lib/cn'
 import { BookOpen, Star, NotebookPen } from 'lucide-react'
 
@@ -340,13 +339,6 @@ export function MobileProfileSheet() {
               </select>
             </SettingRow>
           </div>
-
-          {/* Notifications */}
-          {user && (
-            <div className="border-t border-border-subtle pb-2">
-              <NotificationsSection />
-            </div>
-          )}
 
           {/* Account actions */}
           {user && (
